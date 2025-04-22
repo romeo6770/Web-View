@@ -1,0 +1,13 @@
+# ----------------------------------------,,,,,,,,,
+# Tech details: Browser,,,,,,,,,
+# Account: Extrusora de la Fuente,,,,,,,,,
+# Property: extrusoradelafuente.com,,,,,,,,,
+# ----------------------------------------,,,,,,,,,
+#,,,,,,,,,
+# All Users,,,,,,,,,
+# Start date: 20250224,,,,,,,,,
+# End date: 20250323,,,,,,,,,
+Browser,Active users,New users,Engaged sessions,Engagement rate,Engaged sessions per active user,Average engagement time per active user,Event count,Key events,Total revenue
+Chrome,20,20,12,0.5217391304,0.6,22.1,123,0,0
+Safari,5,5,2,0.4,0.4,11.6,21,0,0
+Safari (in-app),1,1,0,0,0,0,3,0,0

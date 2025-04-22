@@ -1,0 +1,15 @@
+# ----------------------------------------,,,,,,,
+# Pages and screens: Page path and screen class,,,,,,,
+# Account: Extrusora de la Fuente,,,,,,,
+# Property: extrusoradelafuente.com,,,,,,,
+# ----------------------------------------,,,,,,,
+#,,,,,,,
+# All Users,,,,,,,
+# Start date: 20250224,,,,,,,
+# End date: 20250323,,,,,,,
+Page path and screen class,Views,Active users,Views per active user,Average engagement time per active user,Event count,Key events,Total revenue
+/,29,22,1.318181818,11.95454545,92,0,0
+/productos/,9,6,1.5,18.33333333,27,0,0
+/contacto/,6,4,1.5,24.25,15,0,0
+/nosotros/,3,3,1,7,6,0,0
+/preguntas/,3,3,1,3,7,0,0
