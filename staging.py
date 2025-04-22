@@ -6,10 +6,9 @@ import tkinter as tk
 from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-# Configuración de estilo profesional
 sns.set_theme(style="whitegrid", palette="muted", font_scale=0.8)
 
-# Constante de tamaño de figura para todas las gráficas (ancho, alto)
+# Configuración de la figura
 FIGSIZE = (2.5, 2.5)
 
 # Función para convertir columnas a numéricas
@@ -19,7 +18,7 @@ def convert_numeric(df, cols):
             df[col] = pd.to_numeric(df[col], errors='coerce')
     return df
 
-# 1. Cargar datos desde SQLite
+# Función para cargar datos desde SQLite
 def load_data():
     conn = sqlite3.connect('traffic_analysis.db')
     tables = ['audiences', 'demographics', 'engagement', 'pages',
@@ -37,7 +36,7 @@ tech_details_df = convert_numeric(dfs['tech_details'], ["Active users"])
 tech_overview_df = convert_numeric(dfs['tech_overview'], ["Active users"])
 user_acquisition_df = convert_numeric(dfs['user_acquisition'], ["Total users"])
 
-# Funciones de creación de gráficas (devuelven None si no aplicable)
+# Funciones de creación de gráficas (devuelven None si no jala)
 def plot_audiences_bar():
     if audiences_df.empty: return None
     fig, ax = plt.subplots(figsize=FIGSIZE)
@@ -146,7 +145,7 @@ def plot_engagement_ratio():
     fig.tight_layout(pad=1)
     return fig
 
-# Lista de funciones de gráficas
+# Lista de funciones para gráficas
 templates = [
     plot_audiences_bar,
     plot_active_by_country,
@@ -158,17 +157,17 @@ templates = [
     plot_engagement_ratio
 ]
 
-# Crear GUI con estilo y grid responsiva
+# Se crea interfaz gráfica con tkinter
 root = tk.Tk()
 root.title("Dashboard de Análisis de Tráfico")
 root.geometry("1400x900")  # ventana más grande
 
-# Estilos ttk
+# Estilos de tkinter
 style = ttk.Style()
 style.configure("Header.TLabel", font=("Helvetica", 18, "bold"))
 style.configure("Card.TFrame", background="white", borderwidth=1, relief="solid", padding=5)
 
-# Encabezado profesional
+# Encabezado sticky
 dashboard_header = ttk.Label(root, text="Dashboard de Análisis de Tráfico", style="Header.TLabel")
 dashboard_header.pack(pady=(10, 5))
 
@@ -183,13 +182,13 @@ canvas.bind('<Configure>', lambda e: canvas.configure(scrollregion=canvas.bbox("
 plots_frame = ttk.Frame(canvas)
 canvas.create_window((0,0), window=plots_frame, anchor="nw")
 
-# Configurar grid: 3 columnas x 2 filas
+# Configuración del grid
 for col in range(3):
     plots_frame.columnconfigure(col, weight=1)
 for row in range(3):
     plots_frame.rowconfigure(row, weight=1)
 
-# Insertar hasta 6 gráficas en tarjetas
+# Se ponen las gráficas en el grid
 valid_figs = [fn() for fn in templates if fn()]
 for idx, fig in enumerate(valid_figs[:9]):
     row, col = divmod(idx, 3)
